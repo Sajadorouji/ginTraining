@@ -1,7 +1,10 @@
 package main
 
-import "github.com/gin-gonic/gin"
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
 	r := gin.Default()
@@ -10,6 +13,12 @@ func main() {
 			"message": "pong",
 		})
 	})
+	r.POST("/post", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"message": "OK!!!",
+		})
+	})
+
 	fmt.Println("sajad")
 	r.Run() // listen and serve on 0.0.0.0:8080
 }
